@@ -22,4 +22,4 @@ coupon-service
 
 ### ERD
 
-![ERD](www.plantuml.com/plantuml/png/jL9DImCn4BtdL-JcgVPU45eLHAX5gVw0QJ9i0viFafd3Kltl9YnRbcvQIy7SykPDtfitMIQ2I6nRSRSd2canduSMN47kbRTprK9ACssWYM2541e8Tf1GldNRZ_L1o7pGaQ5EVYMCiY3zCLekv9QYSSqHSs1nYeQzTxXXkyCuBIfEj2KWJfLQH23KAygbjLVGFkVhfx5uP73G5nW_Okp_9NeEDmsWCQbe0Xdl_jlaK_RetHykbRS1N3SjM7IygOu0rhFh3OpG7KJbTMrYncBox4Z6GeFlGFkpUJnsDqMLwfsShiolVDALqzVicZFrjO8tfVUaKFjAMQQ-hVfxjJMMxgbIrkhzV_lPp1zErHP5vM5uLlJePUwW94ey0tKSrK3iCndawxon-1ATPjl-0W00)
+![ERD Image](http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/ttokey/coupon-service/blob/master/ERD.puml)
