@@ -1,0 +1,56 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+
+database MySQL{
+    entity User {
+        id : String
+        name : String
+        phoneNumber : String
+        custStatus : String
+        createdAt : LocalDateTime
+        updatedAt : LocalDateTime
+    }
+
+    entity Group {
+        id : String
+        name : String
+        description : String
+        createdAt : LocalDateTime
+        updatedAt : LocalDateTime
+    }
+
+    entity Coupon {
+        id : String
+        company : String
+        menuName : String
+        amount : Long
+        barcode : String
+        dueDate : LocalDateTime
+        imagePath : String
+        createdBy : String
+        createdAt : LocalDateTime
+        usedBy : String
+        usedAt : LocalDateTime
+    }
+
+    entity UserAndGroup {
+        id : String
+        userId : String
+        groupId : String
+    }
+
+    entity GroupAndCoupon {
+        id : String
+        groupId : String
+        couponId : String
+    }
+}
+
+Group |o--o{ GroupAndCoupon : id = groupId
+Coupon |o--o{ GroupAndCoupon : id = couponId
+User |o--o{ UserAndGroup : id = userId
+Group |o--o{ UserAndGroup : id = groupId
+
+
+@enduml
