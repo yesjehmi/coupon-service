@@ -6,6 +6,8 @@ database MySQL{
     entity User {
         id : String
         name : String
+        userId : String
+        userPw : String
         phoneNumber : String
         custStatus : String
         createdAt : LocalDateTime
@@ -22,14 +24,17 @@ database MySQL{
 
     entity Coupon {
         id : String
-        company : String
-        menuName : String
-        amount : Long
-        barcode : String
-        dueDate : LocalDateTime
+        (company) : String
+        (menuName) : String
+        (amount) : Long
+        (barcode) : String
+        (dueDate) : LocalDateTime
         imagePath : String
+        isUsed : boolean
         createdBy : String
         createdAt : LocalDateTime
+        ownBy : String
+        ownAt : LocalDateTime
         usedBy : String
         usedAt : LocalDateTime
     }
@@ -45,12 +50,22 @@ database MySQL{
         groupId : String
         couponId : String
     }
+
+    entity UserAndCoupon {
+        id : String
+        userId : String
+        couponId : String
+        status : String
+    }
 }
 
-Group |o--o{ GroupAndCoupon : id = groupId
-Coupon |o--o{ GroupAndCoupon : id = couponId
-User |o--o{ UserAndGroup : id = userId
-Group |o--o{ UserAndGroup : id = groupId
+Group ||--o{ GroupAndCoupon : id = groupId
+Coupon ||--o{ GroupAndCoupon : id = couponId
+User ||--o{ UserAndGroup : id = userId
+Group ||--o{ UserAndGroup : id = groupId
+
+User ||--|{ UserAndCoupon : id = userId
+Coupon ||--|{ UserAndCoupon : id = groupId
 
 
 @enduml
