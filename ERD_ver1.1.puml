@@ -5,6 +5,7 @@
 database MySQL{
     entity User {
         id : String
+        ---
         name : String
         userId : String
         userPw : String
@@ -16,6 +17,7 @@ database MySQL{
 
     entity Group {
         id : String
+        ---
         name : String
         description : String
         createdAt : LocalDateTime
@@ -24,11 +26,7 @@ database MySQL{
 
     entity Coupon {
         id : String
-        (company) : String
-        (menuName) : String
-        (amount) : Long
-        (barcode) : String
-        (dueDate) : LocalDateTime
+        ---
         imagePath : String
         isUsed : boolean
         createdBy : String
@@ -37,6 +35,12 @@ database MySQL{
         ownAt : LocalDateTime
         usedBy : String
         usedAt : LocalDateTime
+        ---
+        (company) : String
+        (menuName) : String
+        (amount) : Long
+        (barcode) : String
+        (dueDate) : LocalDateTime
     }
 
     entity UserAndGroup {
