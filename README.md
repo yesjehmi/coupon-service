@@ -53,4 +53,4 @@
 
 ## ERD
 
-![ERD Image](http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/ttokey/coupon-service/master/ERD.puml)
+![ERD Image](http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/ttokey/coupon-service/master/ERD_ver1.0.puml)
