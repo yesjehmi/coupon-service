@@ -28,13 +28,29 @@ database MySQL{
         id : String
         ---
         imagePath : String
-        isUsed : boolean
+        status : boolean
         createdBy : String
         createdAt : LocalDateTime
-        ownBy : String
-        ownAt : LocalDateTime
-        usedBy : String
-        usedAt : LocalDateTime
+        owner : String
+        updatedBy : String
+        updatedAt : LocalDateTime
+        ---
+        (company) : String
+        (menuName) : String
+        (amount) : Long
+        (barcode) : String
+        (dueDate) : LocalDateTime
+    }
+
+    entity CouponHistory {
+        id : String
+        ---
+        couponId : String
+        imagePath : String
+        status : boolean
+        owner : String
+        createdBy : String
+        createdAt : LocalDateTime
         ---
         (company) : String
         (menuName) : String
@@ -54,13 +70,6 @@ database MySQL{
         groupId : String
         couponId : String
     }
-
-    entity UserAndCoupon {
-        id : String
-        userId : String
-        couponId : String
-        status : String
-    }
 }
 
 Group ||--o{ GroupAndCoupon : id = groupId
@@ -68,8 +77,7 @@ Coupon ||--o{ GroupAndCoupon : id = couponId
 User ||--o{ UserAndGroup : id = userId
 Group ||--o{ UserAndGroup : id = groupId
 
-User ||--|{ UserAndCoupon : id = userId
-Coupon ||--|{ UserAndCoupon : id = groupId
+Coupon ||--|{ CouponHistory : id = couponId
 
 
 @enduml
