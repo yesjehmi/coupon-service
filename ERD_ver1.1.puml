@@ -8,7 +8,7 @@ database MySQL{
         ---
         name : String
         userId : String
-        userPw : String
+        password : String
         phoneNumber : String
         custStatus : String
         createdAt : LocalDateTime
@@ -28,16 +28,16 @@ database MySQL{
         id : String
         ---
         imagePath : String
-        status : boolean
+        status : String
+        owner : String
         createdBy : String
         createdAt : LocalDateTime
-        owner : String
         updatedBy : String
         updatedAt : LocalDateTime
         ---
         (company) : String
         (menuName) : String
-        (amount) : Long
+        (price) : Long
         (barcode) : String
         (dueDate) : LocalDateTime
     }
@@ -47,35 +47,35 @@ database MySQL{
         ---
         couponId : String
         imagePath : String
-        status : boolean
+        status : String
         owner : String
         createdBy : String
         createdAt : LocalDateTime
         ---
         (company) : String
         (menuName) : String
-        (amount) : Long
+        (price) : Long
         (barcode) : String
         (dueDate) : LocalDateTime
     }
 
-    entity UserAndGroup {
+    entity UserGroup {
         id : String
         userId : String
         groupId : String
     }
 
-    entity GroupAndCoupon {
+    entity GroupCoupon {
         id : String
         groupId : String
         couponId : String
     }
 }
 
-Group ||--o{ GroupAndCoupon : id = groupId
-Coupon ||--o{ GroupAndCoupon : id = couponId
-User ||--o{ UserAndGroup : id = userId
-Group ||--o{ UserAndGroup : id = groupId
+Group ||--o{ GroupCoupon : id = groupId
+Coupon ||--o{ GroupCoupon : id = couponId
+User ||--o{ UserGroup : id = userId
+Group ||--o{ UserGroup : id = groupId
 
 Coupon ||--|{ CouponHistory : id = couponId
 
